@@ -235,12 +235,26 @@ function App() {
               <li>Therefore, missed peaks = <b>{73 - ecgData.peaks4Alg2}</b></li>
               <li>Hence %missed peaks = <b>{((73 - ecgData.peaks4Alg2) / 73) * 100}%</b></li></ul>
 
+            <div className="title">Explanation</div>
+            <ul>
+              <li>For the peak values, the prvious value and next value should be lower</li>
+              <li>For algorithm 1, the average of mid, median amd max is taken as threshold because - median will be 
+                helpful if the difference between maximum and minimum is higher, mid gives the minimum reference for 
+                peak, max gives the maximum reference for peak </li>
+                <li>For algorithm 2, the differences will be very less for P/T wave and higher for QRS complex. 
+                  By squaring the differences, the P/T wave is supressed and QRS complex is enhanced. Hence the peak values 
+                  are found out for QRS by taking a threshold of mid = (max + min)/2. But we might false peaks because
+                 of the noise in the QRS complex near the peaks. To avoid this, a certain time interval is taken from 
+                 every point. The multiple peaks obtained in this time interval is removed. 
+                 Thus, having only one peak in the taken time interval</li></ul>
             <div className="title">Conclusion</div>
             <ul>
-              <li>Algorithm 1 is  efficient only for resting state ecg</li>
-              <li>Algorithm 2 is very efficient for all cases of ECG, having less than 7% of missed peaks</li>
-              <li>For algorithm 2, a certain time interval is taken from every point. The multiple peaks obtained in 
-                this time interval is removed. Thus, having only one peak in the taken interval</li>
+              <li>Algorithm 1 is  efficient only for resting state ecg because for stress ecg, P/T waves will make 
+                the median value shift near to maximum and few peaks will be ignored by the algorithm </li>
+              <li>Algorithm 2 is very efficient for all cases of ECG, having less than 7% of missed peaks, as the algorithm 
+                depends only on QRS complex as P/T wave is supressed by the algoritm, making negligible effect by the stress/
+                exercise case
+              </li>
             </ul>
             <div className="title">codes</div>
             <ul>
