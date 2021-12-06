@@ -237,7 +237,6 @@ function App() {
 
             <div className="title">Explanation</div>
             <ul>
-              <li>For the peak values, the prvious value and next value should be lower</li>
               <li>For algorithm 1, the average of mid, median amd max is taken as threshold because - median will be 
                 helpful if the difference between maximum and minimum is higher, mid gives the minimum reference for 
                 peak, max gives the maximum reference for peak </li>
