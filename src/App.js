@@ -239,6 +239,8 @@ function App() {
             <ul>
               <li>Algorithm 1 is  efficient only for resting state ecg</li>
               <li>Algorithm 2 is very efficient for all cases of ECG, having less than 7% of missed peaks</li>
+              <li>For algorithm 2, a certain time interval is taken from every point. The multiple peaks obtained in 
+                this time interval is removed. Thus, having only one peak in the taken interval</li>
             </ul>
             <div className="title">codes</div>
             <ul>
