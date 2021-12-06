@@ -5,7 +5,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 function App() {
   const [ecgData, setEcgData] = useState([]);
   function getData() {
-    fetch("http://localhost:4000/getData", {
+    fetch("https://heartrate-ranjith.herokuapp.com/getData", {
       method: "GET"
     })
       .then((data) => data.json())
