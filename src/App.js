@@ -231,16 +231,17 @@ function App() {
             <ul><div> the squared double differences are calculated at all points to form an array(say 'array1') </div>
               <li> The threshold value is taken as 25% of the mid value, where mid value = (max + min) / 2</li>
               <li>Assuming all peaks lie above threshold,</li>
-              <li>peaks from algorithm2 = <b>{ecgData.peaks3Alg2}</b></li>
+              <li>peaks from algorithm2 = <b>{ecgData.peaks4Alg2}</b></li>
               <li>Total peaks = <b>73</b></li>
-              <li>Therefore, missed peaks = <b>{73 - ecgData.peaks3Alg2}</b></li>
-              <li>Hence %missed peaks = <b>{((73 - ecgData.peaks3Alg2) / 73) * 100}%</b></li></ul>
+              <li>Therefore, missed peaks = <b>{73 - ecgData.peaks4Alg2}</b></li>
+              <li>Hence %missed peaks = <b>{((73 - ecgData.peaks4Alg2) / 73) * 100}%</b></li></ul>
           </div> : ""}
         </>)}
       <div className="container">
         <div className="title">Conclusion</div>
         <ul>
-          <li>Algorithm 2 is very efficient for all cases of ECG, having less than 1% of missed peaks</li>
+        <li>Algorithm 1 is  efficient only for resting state ecg</li>
+          <li>Algorithm 2 is very efficient for all cases of ECG, having less than 7% of missed peaks</li>
         </ul>
         <div className="title">codes</div>
         <ul>
