@@ -141,13 +141,15 @@ function App() {
           </div>:""}
           
           </>)}
+          <div className="container">
+          <div className="title">codes</div>
           <ul>
             <li><a href = "https://github.com/RC13967/heart-rate-backend/blob/master/index.js">
               back end code link (using node js)</a></li>
               <li><a href = "https://github.com/RC13967/heartRate-front2nd/blob/main/src/App.js">
                 front end code link (using reactjs and chartjs)</a></li>
           </ul>
-          <div>References</div>
+          <div className="title">References</div>
           <ul>
             <li><a href = "https://www.koreascience.or.kr/article/JAKO201827041050959.pdf">
               Mid Value</a></li>
@@ -155,6 +157,7 @@ function App() {
                 Double-squared-differences
               </a></li>
           </ul>
+          </div>
     </div>
   );
 }
