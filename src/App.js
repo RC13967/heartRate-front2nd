@@ -74,8 +74,39 @@ function App() {
       }
     ]
   };
-  const states = [state1,state2, state3, state4];
-  const ecgTitles = ["ECG 1 - Algorithm 1","ECG 1 - Algorithm 2", "ECG 2 - Algorithm 1", "ECG 2 - Algorithm 2" ]
+  const state5 = {
+    labels: ecgData.sub3 ? ecgData.sub3.map((el, index) => index) : ""
+    ,
+    datasets: [
+      {
+        label: 'magnitude',
+        fill: false,
+        pointRadius: 1,
+        lineTension: 0.3,
+        backgroundColor: '#e80805',
+        borderColor:'green',
+        data: ecgData.sub3 ? ecgData.sub3 : ""
+      }
+    ]
+  };
+  const state6 = {
+    labels: ecgData.sub3Alg2 ? ecgData.sub3Alg2.map((el, index) => index) : ""
+    ,
+    datasets: [
+      {
+        label: 'magnitude',
+        fill: false,
+        pointRadius: 1,
+        lineTension: 0.3,
+        backgroundColor: '#e80805',
+        borderColor:'green',
+        data: ecgData.sub3Alg2 ? ecgData.sub3Alg2 : ""
+      }
+    ]
+  };
+  const states = [state1,state2, state3, state4, state5, state6];
+  const ecgTitles = ["ECG 1 - Algorithm 1","ECG 1 - Algorithm 2", "ECG 2 - Algorithm 1", "ECG 2 - Algorithm 2",
+"ECG3 - Algorithm1", "ECG3 - Algorithm2" ]
   return (
     <div className="App">
         {!ecgData.sub1 ? 
@@ -106,40 +137,57 @@ function App() {
           {index ===0 ?<div className="container">
             <div className="title">Algorithm 1 : threshold = (max + min) / 2</div>
             <ul><div>Assuming all peaks lie above threshold, </div>
-          <li>peaks from algorithm 1 = <b>{ecgData.peaks1.length}</b></li>
+          <li>peaks from algorithm 1 = <b>{ecgData.peaks1}</b></li>
           <li>Total peaks = <b>70</b></li>
-          <li>Therefore, missed peaks = <b>{70 -  ecgData.peaks1.length}</b> </li>
-          <li>Hence %missed peaks = <b>{((70 -  ecgData.peaks1.length)/70)*100}%</b></li></ul>
+          <li>Therefore, missed peaks = <b>{70 -  ecgData.peaks1}</b> </li>
+          <li>Hence %missed peaks = <b>{((70 -  ecgData.peaks1)/70)*100}%</b></li></ul>
           </div>:""}
           {index ===1 ?<div className="container">
           <div className="title">Algorithm 2: using double difference squares</div>
           <div> the squared double differences are calculated at all points to form an array(say 'array1') </div>
           <div> The threshold value is taken as 25% of the mid value, where mid value = (max + min) / 2</div>
           <ul><div>Assuming all peaks lie above threshold,</div>
-          <li>peaks from algorithm2 = <b>{ecgData.peaks1Alg2.length}</b></li>
+          <li>peaks from algorithm2 = <b>{ecgData.peaks1Alg2}</b></li>
           <li>Total peaks = <b>70</b></li>
-          <li>Therefore, missed peaks = <b>{70 -  ecgData.peaks1Alg2.length}</b></li>
-          <li>Hence %missed peaks = <b>{((70 -  ecgData.peaks1Alg2.length)/70)*100}%</b></li></ul>
+          <li>Therefore, missed peaks = <b>{70 -  ecgData.peaks1Alg2}</b></li>
+          <li>Hence %missed peaks = <b>{((70 -  ecgData.peaks1Alg2)/70)*100}%</b></li></ul>
           </div>:""}
           {index ===2 ?<div className="container">
           <div className="title">Algorithm 1 : threshold = (max + min) / 2</div>
           <ul><div>Assuming all peaks lie above threshold, </div>
-          <li>peaks from algorithm 1 = <b>{ecgData.peaks2.length}</b></li>
+          <li>peaks from algorithm 1 = <b>{ecgData.peaks2}</b></li>
           <li>Total peaks = <b>103</b></li>
-          <li>Therefore, missed peaks = <b>{103 -  ecgData.peaks2.length}</b></li>
-          <li>Hence %missed peaks = <b>{((103 -  ecgData.peaks2.length)/103)*100}%</b></li></ul>
+          <li>Therefore, missed peaks = <b>{103 -  ecgData.peaks2}</b></li>
+          <li>Hence %missed peaks = <b>{((103 -  ecgData.peaks2)/103)*100}%</b></li></ul>
           </div>:""}
           {index ===3 ?<div className="container">
           <div className="title">Algorithm 2: using double difference squares</div>
           <ul><div> the squared double differences are calculated at all points to form an array(say 'array1') </div>
           <li> The threshold value is taken as 25% of the mid value, where mid value = (max + min) / 2</li>
           <li>Assuming all peaks lie above threshold,</li>
-          <li>peaks from algorithm2 = <b>{ecgData.peaks2Alg2.length}</b></li>
+          <li>peaks from algorithm2 = <b>{ecgData.peaks2Alg2}</b></li>
           <li>Total peaks = <b>103</b></li>
-          <li>Therefore, missed peaks = <b>{103 -  ecgData.peaks2Alg2.length}</b></li>
-          <li>Hence %missed peaks = <b>{((103 -  ecgData.peaks2Alg2.length)/103)*100}%</b></li></ul>
+          <li>Therefore, missed peaks = <b>{103 -  ecgData.peaks2Alg2}</b></li>
+          <li>Hence %missed peaks = <b>{((103 -  ecgData.peaks2Alg2)/103)*100}%</b></li></ul>
           </div>:""}
-          
+          {index ===4 ? <div className="container">
+          <div className="title">Algorithm 1 : threshold = (max + min) / 2</div>
+          <ul><div>Assuming all peaks lie above threshold, </div>
+          <li>peaks from algorithm 1 = <b>{ecgData.peaks3}</b></li>
+          <li>Total peaks = <b>80</b></li>
+          <li>Therefore, missed peaks = <b>{80 -  ecgData.peaks3}</b></li>
+          <li>Hence %missed peaks = <b>{((80 -  ecgData.peaks3)/80)*100}%</b></li></ul>
+          </div>:""}
+          {index ===5 ?<div className="container">
+          <div className="title">Algorithm 2: using double difference squares</div>
+          <ul><div> the squared double differences are calculated at all points to form an array(say 'array1') </div>
+          <li> The threshold value is taken as 25% of the mid value, where mid value = (max + min) / 2</li>
+          <li>Assuming all peaks lie above threshold,</li>
+          <li>peaks from algorithm2 = <b>{ecgData.peaks3Alg2}</b></li>
+          <li>Total peaks = <b>80</b></li>
+          <li>Therefore, missed peaks = <b>{80 -  ecgData.peaks3Alg2}</b></li>
+          <li>Hence %missed peaks = <b>{((80 -  ecgData.peaks3Alg2)/80)*100}%</b></li></ul>
+          </div>:""}
           </>)}
           <div className="container">
           <div className="title">codes</div>
