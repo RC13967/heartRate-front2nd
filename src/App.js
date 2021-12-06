@@ -85,6 +85,7 @@ function App() {
           <Line
             data={states[index]}
             options={{
+              animation:false,
               scales: {
                 x: {
                   title: {
