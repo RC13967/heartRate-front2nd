@@ -75,17 +75,13 @@ function App() {
     ]
   };
   const states = [state1,state2, state3, state4];
+  const ecgTitles = ["ECG 1 - Algorithm 1","ECG 1 - Algorithm 2", "ECG 2 - Algorithm 1", "ECG 2 - Algorithm 2" ]
   return (
     <div className="App">
         {!ecgData.sub1 ? 
           <div className="loading">Please wait...<CircularProgress /></div>
           : states.map((state,index)=><>
-          <div className="chart-heading">
-          {index === 0 ? "ECG 1 - Algorithm 1":""}
-          {index === 1 ? "ECG 1 - Algorithm 2":""}
-          {index === 2 ? "ECG 2 - Algorithm 1":""}
-          {index === 3 ? "ECG 2 - Algorithm 2":""}
-          </div>
+          <div className="chart-heading">{ecgTitles[index]}</div>
           <Line
             data={state}
             options={{
