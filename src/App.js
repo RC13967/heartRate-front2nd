@@ -135,7 +135,7 @@ function App() {
             }}
           />
           {index === 0 ? <div className="container">
-            <div className="title">Algorithm 1 : threshold = ([(max + min) / 2] + max)/2</div>
+            <div className="title">Algorithm 1 : threshold = (mid + max)/2 , where mid = (max + min)/2</div>
             <ul><div>Assuming all peaks lie above threshold, </div>
               <li>peaks from algorithm 1 = <b>{ecgData.peaks1}</b></li>
               <li>Total peaks = <b>70</b></li>
@@ -153,7 +153,7 @@ function App() {
               <li>Hence %missed peaks = <b>{((70 - ecgData.peaks1Alg2) / 70) * 100}%</b></li></ul>
           </div> : ""}
           {index === 2 ? <div className="container">
-            <div className="title">Algorithm 1 : threshold = ([(max + min) / 2] + max)/2</div>
+            <div className="title">Algorithm 1 : threshold = (mid + max)/2 , where mid = (max + min)/2</div>
             <ul><div>Assuming all peaks lie above threshold, </div>
               <li>peaks from algorithm 1 = <b>{ecgData.peaks2}</b></li>
               <li>Total peaks = <b>103</b></li>
@@ -171,7 +171,7 @@ function App() {
               <li>Hence %missed peaks = <b>{((103 - ecgData.peaks2Alg2) / 103) * 100}%</b></li></ul>
           </div> : ""}
           {index === 4 ? <div className="container">
-            <div className="title">Algorithm 1 : threshold = ([(max + min) / 2] + max)/2</div>
+            <div className="title">Algorithm 1 : threshold = (mid + max)/2 , where mid = (max + min)/2</div>
             <ul><div>Assuming all peaks lie above threshold, </div>
               <li>peaks from algorithm 1 = <b>{ecgData.peaks3}</b></li>
               <li>Total peaks = <b>80</b></li>
