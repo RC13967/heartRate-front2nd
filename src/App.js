@@ -80,10 +80,10 @@ function App() {
     <div className="App">
         {!ecgData.sub1 ? 
           <div className="loading">Please wait...<CircularProgress /></div>
-          : states.map((state,index)=><>
-          <div className="chart-heading">{ecgTitles[index]}</div>
+          : ecgTitles.map((title,index)=><>
+          <div className="chart-heading">{title}</div>
           <Line
-            data={state}
+            data={states[index]}
             options={{
               scales: {
                 x: {
@@ -102,7 +102,7 @@ function App() {
               }
             }}
           />
-          {state === state1 ?<div className="container">
+          {index ===0 ?<div className="container">
             <div className="title">Algorithm 1 : threshold = (max + min) / 2</div>
           <div>Assuming all peaks lie above threshold, </div>
           <div>peaks from algorithm 1 = <b>{ecgData.peaks1.length}</b></div>
@@ -111,7 +111,7 @@ function App() {
           <div>Hence %missed peaks = <b>{((70 -  ecgData.peaks1.length)/70)*100}%</b></div>
           <div></div>
           </div>:""}
-          {state === state2 ?<div className="container">
+          {index ===1 ?<div className="container">
           <div className="title">Algorithm 2: using double difference squares</div>
           <div> the squared double differences are calculated at all points to form an array(say 'array1') </div>
           <div> The threshold value is taken as 25% of the mid value, where mid value = (max + min) / 2</div>
@@ -122,7 +122,7 @@ function App() {
           <div>Hence %missed peaks = <b>{((70 -  ecgData.peaks1Alg2.length)/70)*100}%</b></div>
           <div></div>
           </div>:""}
-          {state === state3 ?<div className="container">
+          {index ===2 ?<div className="container">
           <div className="title">Algorithm 1 : threshold = (max + min) / 2</div>
           <div>Assuming all peaks lie above threshold, </div>
           <div>peaks from algorithm 1 = <b>{ecgData.peaks2.length}</b></div>
@@ -131,7 +131,7 @@ function App() {
           <div>Hence %missed peaks = <b>{((103 -  ecgData.peaks2.length)/103)*100}%</b></div>
           <div></div>
           </div>:""}
-          {state === state4 ?<div className="container">
+          {index ===3 ?<div className="container">
           <div className="title">Algorithm 2: using double difference squares</div>
           <div> the squared double differences are calculated at all points to form an array(say 'array1') </div>
           <div> The threshold value is taken as 25% of the mid value, where mid value = (max + min) / 2</div>
