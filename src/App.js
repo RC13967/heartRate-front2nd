@@ -21,9 +21,7 @@ function App() {
       {
         label: 'magnitude',
         fill: false,
-        pointRadius: 1,
-        lineTension: 0.3,
-        backgroundColor: '#e80805',
+        pointRadius: 0,
         borderColor: 'green',
         data: ecgData.sub1 ? ecgData.sub1 : ""
       }
@@ -36,9 +34,7 @@ function App() {
       {
         label: 'magnitude',
         fill: false,
-        pointRadius: 1,
-        lineTension: 0.3,
-        backgroundColor: '#e80805',
+        pointRadius: 0,
         borderColor: 'green',
         data: ecgData.sub1Alg2 ? ecgData.sub1Alg2 : ""
       }
@@ -51,9 +47,7 @@ function App() {
       {
         label: 'magnitude',
         fill: false,
-        pointRadius: 1,
-        lineTension: 0.3,
-        backgroundColor: '#e80805',
+        pointRadius: 0,
         borderColor: 'green',
         data: ecgData.sub2 ? ecgData.sub2 : ""
       }
@@ -66,9 +60,7 @@ function App() {
       {
         label: 'magnitude',
         fill: false,
-        pointRadius: 1,
-        lineTension: 0.3,
-        backgroundColor: '#e80805',
+        pointRadius: 0,
         borderColor: 'green',
         data: ecgData.sub2Alg2 ? ecgData.sub2Alg2 : ""
       }
@@ -81,9 +73,7 @@ function App() {
       {
         label: 'magnitude',
         fill: false,
-        pointRadius: 1,
-        lineTension: 0.3,
-        backgroundColor: '#e80805',
+        pointRadius: 0,
         borderColor: 'green',
         data: ecgData.sub3 ? ecgData.sub3 : ""
       }
@@ -96,9 +86,7 @@ function App() {
       {
         label: 'magnitude',
         fill: false,
-        pointRadius: 1,
-        lineTension: 0.3,
-        backgroundColor: '#e80805',
+        pointRadius: 0,
         borderColor: 'green',
         data: ecgData.sub3Alg2 ? ecgData.sub3Alg2 : ""
       }
@@ -111,9 +99,7 @@ function App() {
       {
         label: 'magnitude',
         fill: false,
-        pointRadius: 1,
-        lineTension: 0.3,
-        backgroundColor: '#e80805',
+        pointRadius: 0,
         borderColor: 'green',
         data: ecgData.sub4 ? ecgData.sub4 : ""
       }
@@ -126,9 +112,7 @@ function App() {
       {
         label: 'magnitude',
         fill: false,
-        pointRadius: 1,
-        lineTension: 0.3,
-        backgroundColor: '#e80805',
+        pointRadius: 0,
         borderColor: 'green',
         data: ecgData.sub4Alg2 ? ecgData.sub4Alg2 : ""
       }
@@ -146,6 +130,8 @@ function App() {
             data={states[index]}
             options={{
               animation: false,
+              normalized:true,
+              spanGaps:true,
               scales: {
                 x: {
                   title: {
