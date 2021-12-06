@@ -236,8 +236,7 @@ function App() {
               <li>Therefore, missed peaks = <b>{73 - ecgData.peaks4Alg2}</b></li>
               <li>Hence %missed peaks = <b>{((73 - ecgData.peaks4Alg2) / 73) * 100}%</b></li></ul>
           </div> : ""}
-        </>)}
-      <div className="container">
+          <div className="container">
         <div className="title">Conclusion</div>
         <ul>
         <li>Algorithm 1 is  efficient only for resting state ecg</li>
@@ -263,6 +262,8 @@ function App() {
           </a></li>
         </ul>
       </div>
+        </>)}
+      
     </div>
   );
 }
