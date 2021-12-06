@@ -139,9 +139,8 @@ function App() {
     "ECG3 - Algorithm1", "ECG3 - Algorithm2", "ECG4 - Algorithm1", "ECG4 - Algorithm2"]
   return (
     <div className="App">
-      {!ecgData.sub1 ?
-        <div className="loading">Please wait...<CircularProgress /></div>
-        : ecgTitles.map((title, index) => <>
+      {ecgData.sub1 ? 
+        ecgTitles.map((title, index) => <>
           <div className="chart-heading">{title}</div>
           <Line
             data={states[index]}
@@ -263,7 +262,9 @@ function App() {
           </div>
             : ""}
 
-        </>)}
+        </>)
+        :<div className="loading">Please wait...<CircularProgress /></div>
+        }
 
     </div>
   );
