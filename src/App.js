@@ -172,7 +172,7 @@ function App() {
           {index === 1 ? <><div className="container">
             <div className="title">Algorithm 2: using double difference squares</div>
             <div> the squared double differences are calculated at all points to form an array(say 'array1') </div>
-            <div> The threshold value is taken as 33% of the (mid + min)/3 , where mid value = (max + min) / 2</div>
+            <div> The threshold value is taken as (mid + min)/3 , where mid value = (max + min) / 2</div>
             <ul><div>Assuming all peaks lie above threshold,</div>
               <li>peaks from algorithm2 = <b>{ecgData.peaks1Alg2}</b></li>
               <li>Total peaks = <b>70</b></li>
@@ -190,7 +190,7 @@ function App() {
           {index === 3 ? <><div className="container">
             <div className="title">Algorithm 2: using double difference squares</div>
             <ul><div> the squared double differences are calculated at all points to form an array(say 'array1') </div>
-              <li> The threshold value is taken as 33% of the (mid + min)/3, where mid value = (max + min) / 2</li>
+              <li> The threshold value is taken as (mid + min)/3, where mid value = (max + min) / 2</li>
               <li>Assuming all peaks lie above threshold,</li>
               <li>peaks from algorithm2 = <b>{ecgData.peaks2Alg2}</b></li>
               <li>Total peaks = <b>103</b></li>
@@ -208,7 +208,7 @@ function App() {
           {index === 5 ? <><div className="container">
             <div className="title">Algorithm 2: using double difference squares</div>
             <ul><div> the squared double differences are calculated at all points to form an array(say 'array1') </div>
-              <li> The threshold value is taken as 33% of the (mid + min)/3, where mid value = (max + min) / 2</li>
+              <li> The threshold value is taken as (mid + min)/3, where mid value = (max + min) / 2</li>
               <li>Assuming all peaks lie above threshold,</li>
               <li>peaks from algorithm2 = <b>{ecgData.peaks3Alg2}</b></li>
               <li>Total peaks = <b>80</b></li>
@@ -226,7 +226,7 @@ function App() {
           {index === 7 ? <div className="container">
             <div className="title">Algorithm 2: using double difference squares</div>
             <ul><div> the squared double differences are calculated at all points to form an array(say 'array1') </div>
-              <li> The threshold value is taken as 33% of the (mid + min)/3, where mid value = (max + min) / 2</li>
+              <li> The threshold value is taken as (mid + min)/3, where mid value = (max + min) / 2</li>
               <li>Assuming all peaks lie above threshold,</li>
               <li>peaks from algorithm2 = <b>{ecgData.peaks4Alg2}</b></li>
               <li>Total peaks = <b>73</b></li>
