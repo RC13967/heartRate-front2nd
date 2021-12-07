@@ -236,20 +236,20 @@ function App() {
             <div className="title">Explanation</div>
             <ul>
               <li>For algorithm 1, the average of mid, median amd max is taken as threshold because - median will be 
-                helpful if the difference between maximum and minimum is higher, mid gives the minimum reference for 
+                helpful if there is unsymmetrical distribution of data, mid gives the minimum reference for 
                 peak, max gives the maximum reference for peak </li>
                 <li>For algorithm 2, the differences will be very less for P/T wave and higher for QRS complex. 
                   By squaring the differences, the P/T wave is supressed and QRS complex is enhanced. Hence the peak values 
                   are found out for QRS by taking a threshold of mid = (max + min)/2. But we might false peaks because
-                 of the noise in the QRS complex near the peaks. To avoid this, a certain time interval is taken from 
+                 of the noise in the QRS complex. To avoid this, a certain time interval is taken from 
                  every point. The multiple peaks obtained in this time interval is removed. 
                  Thus, having only one peak in the taken time interval</li></ul>
             <div className="title">Conclusion</div>
             <ul>
               <li>Algorithm 1 is  efficient only for resting state ecg because for stress ecg, P/T waves will make 
-                the median value shift near to maximum and few peaks will be ignored by the algorithm </li>
+                the median value shift near to maximum value and some peaks will be ignored by the algorithm </li>
               <li>Algorithm 2 is very efficient for all cases of ECG, having less than 2% of missed peaks, as the algorithm 
-                depends only on QRS complex as P/T wave is supressed by the algoritm, making negligible effect by the stress/
+                depends only on QRS complex as P/T wave is supressed by the algoritm, making less effect by the stress/
                 exercise case
               </li>
             </ul>
