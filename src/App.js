@@ -19,114 +19,146 @@ function App() {
     const ymax = ecgData.sub1 ? [ecgData.sub1Max,ecgData.sub1Alg2Max, ecgData.sub2Max, ecgData.sub2Alg2Max,
       ecgData.sub3Max,ecgData.sub3Alg2Max, ecgData.sub4Max, ecgData.sub4Alg2Max ] :"";
       const ymin = ecgData.sub1 ? [ecgData.sub1Min,ecgData.sub1Alg2Min, ecgData.sub2Min, ecgData.sub2Alg2Min,
-        ecgData.sub3Min,ecgData.sub3Alg2Min, ecgData.sub4Min, ecgData.sub4Alg2Min ] :""
+        ecgData.sub3Min,ecgData.sub3Alg2Min, ecgData.sub4Min, ecgData.sub4Alg2Min ] :"";
+        const peakIndexes = ecgData.sub1 ? [ecgData.peaks1Indexes,ecgData.peaks1Alg2Indexes,ecgData.peaks2Indexes,
+          ecgData.peaks2Alg2Indexes, ecgData.peaks3Indexes,ecgData.peaks3Alg2Indexes,ecgData.peaks4Indexes,
+          ecgData.peaks4Alg2Indexes] :"";
+          const labels = ['magnitudes1','magnitudes2','magnitudes3','magnitudes4',
+          'magnitudes5','magnitudes6','magnitudes7','magnitudes8']
+        function findColor( context )
+        {
+          let peakindices = peakIndexes[labels.indexOf(context.dataset.label)];
+          let index = context.dataIndex;
+           if (peakindices.indexOf(index) !== -1 ) return 'red'
+          return 'green'
+        }
+        function findRadius( context )
+        {
+          let peakindices = peakIndexes[labels.indexOf(context.dataset.label)];
+          let index = context.dataIndex;
+          if (peakindices.indexOf(index) !== -1 ) return 5
+          else return 1
+        }
   const state1 = {
-    labels: ecgData.sub1 ? ecgData.sub1.map((el, index) => index) : ""
+    labels: ecgData.sub1 ? ecgData.sub1.map((el, index) => ((index/ecgData.sub1.length)*60).toFixed(2)) : ""
     ,
     datasets: [
       {
-        label: 'magnitude',
+        label: 'magnitudes1',
         fill: false,
-        pointRadius: 0,
-        borderColor: 'green',
+        pointRadius: findRadius,
+        backgroundColor:findColor,
+        borderColor: findColor,
         data: ecgData.sub1 ? ecgData.sub1 : ""
       }
     ]
   };
   const state2 = {
-    labels: ecgData.sub1Alg2 ? ecgData.sub1Alg2.map((el, index) => index) : ""
+    labels: ecgData.sub1Alg2 ? ecgData.sub1Alg2.map((el, index) => ((index/ecgData.sub1Alg2.length)*60).toFixed(2)) : ""
     ,
     datasets: [
       {
-        label: 'magnitude',
+        label: 'magnitudes2',
         fill: false,
-        pointRadius: 0,
-        borderColor: 'green',
+        pointRadius: findRadius,
+        backgroundColor:findColor,
+        borderColor: findColor,
         data: ecgData.sub1Alg2 ? ecgData.sub1Alg2 : ""
       }
     ]
   };
   const state3 = {
-    labels: ecgData.sub2 ? ecgData.sub2.map((el, index) => index) : ""
+    labels: ecgData.sub2 ? ecgData.sub2.map((el, index) => ((index/ecgData.sub2.length)*60).toFixed(2)) : ""
     ,
     datasets: [
       {
-        label: 'magnitude',
+        label: 'magnitudes3',
         fill: false,
-        pointRadius: 0,
-        borderColor: 'green',
+        pointRadius: findRadius,
+        backgroundColor:findColor,
+        borderColor: findColor,
         data: ecgData.sub2 ? ecgData.sub2 : ""
       }
     ]
   };
   const state4 = {
-    labels: ecgData.sub2Alg2 ? ecgData.sub2Alg2.map((el, index) => index) : ""
+    labels: ecgData.sub2Alg2 ? ecgData.sub2Alg2.map((el, index) => ((index/ecgData.sub2Alg2.length)*60).toFixed(2)) : ""
     ,
     datasets: [
       {
-        label: 'magnitude',
+        label: 'magnitudes4',
         fill: false,
-        pointRadius: 0,
-        borderColor: 'green',
+        pointRadius: findRadius,
+        backgroundColor:findColor,
+        borderColor: findColor,
         data: ecgData.sub2Alg2 ? ecgData.sub2Alg2 : ""
       }
     ]
   };
   const state5 = {
-    labels: ecgData.sub3 ? ecgData.sub3.map((el, index) => index) : ""
+    labels: ecgData.sub3 ? ecgData.sub3.map((el, index) => ((index/ecgData.sub3.length)*60).toFixed(2)) : ""
     ,
     datasets: [
       {
-        label: 'magnitude',
+        label: 'magnitudes5',
         fill: false,
-        pointRadius: 0,
-        borderColor: 'green',
+        pointRadius: findRadius,
+        backgroundColor:findColor,
+        borderColor: findColor,
         data: ecgData.sub3 ? ecgData.sub3 : ""
       }
     ]
   };
   const state6 = {
-    labels: ecgData.sub3Alg2 ? ecgData.sub3Alg2.map((el, index) => index) : ""
+    labels: ecgData.sub3Alg2 ? ecgData.sub3Alg2.map((el, index) => ((index/ecgData.sub3Alg2.length)*60).toFixed(2)) : ""
     ,
     datasets: [
       {
-        label: 'magnitude',
+        label: 'magnitudes6',
         fill: false,
-        pointRadius: 0,
-        borderColor: 'green',
+        pointRadius: findRadius,
+        backgroundColor:findColor,
+        borderColor: findColor,
         data: ecgData.sub3Alg2 ? ecgData.sub3Alg2 : ""
       }
     ]
   };
   const state7 = {
-    labels: ecgData.sub4 ? ecgData.sub4.map((el, index) => index) : ""
+    labels: ecgData.sub4 ? ecgData.sub4.map((el, index) => ((index/ecgData.sub4.length)*60).toFixed(2)) : ""
     ,
     datasets: [
       {
-        label: 'magnitude',
+        label: 'magnitudes7',
         fill: false,
-        pointRadius: 0,
-        borderColor: 'green',
+        pointRadius: findRadius,
+        backgroundColor:findColor,
+        borderColor: findColor,
         data: ecgData.sub4 ? ecgData.sub4 : ""
       }
     ]
   };
   const state8 = {
-    labels: ecgData.sub4Alg2 ? ecgData.sub4Alg2.map((el, index) => index) : ""
+    labels: ecgData.sub4Alg2 ? ecgData.sub4Alg2.map((el, index) => ((index/ecgData.sub4Alg2.length)*60).toFixed(2)) : ""
     ,
     datasets: [
       {
-        label: 'magnitude',
+        label: 'magnitudes8',
         fill: false,
-        pointRadius: 0,
-        borderColor: 'green',
+        pointRadius: findRadius,
+        backgroundColor:findColor,
+        borderColor: findColor,
         data: ecgData.sub4Alg2 ? ecgData.sub4Alg2 : ""
       }
     ]
   };
   const states = [state1, state2, state3, state4, state5, state6, state7, state8];
-  const ecgTitles = ["ECG 1 - Algorithm 1", "ECG 1 - Algorithm 2", "ECG 2 - Algorithm 1", "ECG 2 - Algorithm 2",
-    "ECG3 - Algorithm1", "ECG3 - Algorithm2", "ECG4 - Algorithm1", "ECG4 - Algorithm2"]
+  const ecgTitles = ["ECG 1 - Algorithm 1 (stress ECG - challenge 2018 test set database)", 
+  "ECG 1 - Algorithm 2(stress ECG - challenge 2018 test set database)", 
+  "ECG 2 - Algorithm 1(stress ECG - stress recognition in automobile drivers)", 
+  "ECG 2 - Algorithm 2(stress ECG - stress recognition in automobile drivers)",
+    "ECG3 - Algorithm1(resting state ECG)", "ECG3 - Algorithm2(resting state ECG)", 
+    "ECG4 - Algorithm1(stress ECG - MIT BIH Noise stress test database)", 
+    "ECG4 - Algorithm2(stress ECG - MIT BIH Noise stress test database)"]
   return (
     <div className="App">
       {ecgData.sub1 ? 
@@ -144,7 +176,7 @@ function App() {
                   min:0,
                   title: {
                     display: true,
-                    text: 'time',
+                    text: 'time (seconds)',
                     fontSize: 20,
                     color: 'blue',
                   },
@@ -164,74 +196,74 @@ function App() {
           {index === 0 ? <div className="container">
             <div className="title">Algorithm 1 : threshold = (median + maximum + mid)/3 , where mid = (max + min)/2</div>
             <ul><div>Assuming all peaks lie above threshold, </div>
-              <li>peaks from algorithm 1 = <b>{ecgData.peaks1}</b></li>
-              <li>Total peaks = <b>70</b></li>
-              <li>Therefore, missed peaks = <b>{70 - ecgData.peaks1}</b> </li>
-              <li>Hence %missed peaks = <b>{((70 - ecgData.peaks1) / 70) * 100}%</b></li></ul>
+              <li>peaks from algorithm 1 = <b>{ecgData.peaks1.length}</b></li>
+              <li>Total peaks = <b>77</b></li>
+              <li>Therefore, missed peaks = <b>{77 - ecgData.peaks1.length}</b> </li>
+              <li>Hence %missed peaks = <b>{((77 - ecgData.peaks1.length) / 77) * 100}%</b></li></ul>
           </div> : ""}
           {index === 1 ? <><div className="container">
             <div className="title">Algorithm 2: using double difference squares</div>
             <div> the squared double differences are calculated at all points to form an array(say 'array1') </div>
             <div> The threshold value is taken as (mid + min)/3 , where mid value = (max + min) / 2</div>
             <ul><div>Assuming all peaks lie above threshold,</div>
-              <li>peaks from algorithm2 = <b>{ecgData.peaks1Alg2}</b></li>
-              <li>Total peaks = <b>70</b></li>
-              <li>Therefore, missed peaks = <b>{70 - ecgData.peaks1Alg2}</b></li>
-              <li>Hence %missed peaks = <b>{((70 - ecgData.peaks1Alg2) / 70) * 100}%</b></li></ul>
+              <li>peaks from algorithm2 = <b>{ecgData.peaks1Alg2.length}</b></li>
+              <li>Total peaks = <b>77</b></li>
+              <li>Therefore, missed peaks = <b>{77 - ecgData.peaks1Alg2.length}</b></li>
+              <li>Hence %missed peaks = <b>{((77 - ecgData.peaks1Alg2.length) / 77) * 100}%</b></li></ul>
           </div><hr/></> : ""}
           {index === 2 ? <div className="container">
             <div className="title">Algorithm 1 : threshold = (median + maximum + mid)/3 , where mid = (max + min)/2</div>
             <ul><div>Assuming all peaks lie above threshold, </div>
-              <li>peaks from algorithm 1 = <b>{ecgData.peaks2}</b></li>
-              <li>Total peaks = <b>103</b></li>
-              <li>Therefore, missed peaks = <b>{103 - ecgData.peaks2}</b></li>
-              <li>Hence %missed peaks = <b>{((103 - ecgData.peaks2) / 103) * 100}%</b></li></ul>
+              <li>peaks from algorithm 1 = <b>{ecgData.peaks2.length}</b></li>
+              <li>Total peaks = <b>69</b></li>
+              <li>Therefore, missed peaks = <b>{69 - ecgData.peaks2.length}</b></li>
+              <li>Hence %missed peaks = <b>{((69 - ecgData.peaks2.length) / 69) * 100}%</b></li></ul>
           </div> : ""}
           {index === 3 ? <><div className="container">
             <div className="title">Algorithm 2: using double difference squares</div>
             <ul><div> the squared double differences are calculated at all points to form an array(say 'array1') </div>
               <li> The threshold value is taken as (mid + min)/3, where mid value = (max + min) / 2</li>
               <li>Assuming all peaks lie above threshold,</li>
-              <li>peaks from algorithm2 = <b>{ecgData.peaks2Alg2}</b></li>
-              <li>Total peaks = <b>103</b></li>
-              <li>Therefore, missed peaks = <b>{103 - ecgData.peaks2Alg2}</b></li>
-              <li>Hence %missed peaks = <b>{((103 - ecgData.peaks2Alg2) / 103) * 100}%</b></li></ul>
+              <li>peaks from algorithm2 = <b>{ecgData.peaks2Alg2.length}</b></li>
+              <li>Total peaks = <b>69</b></li>
+              <li>Therefore, missed peaks = <b>{69 - ecgData.peaks2Alg2.length}</b></li>
+              <li>Hence %missed peaks = <b>{((69 - ecgData.peaks2Alg2.length) / 69) * 100}%</b></li></ul>
           </div><hr/></> : ""}
           {index === 4 ? <div className="container">
             <div className="title">Algorithm 1 : threshold = (median + maximum + mid)/3 , where mid = (max + min)/2</div>
             <ul><div>Assuming all peaks lie above threshold, </div>
-              <li>peaks from algorithm 1 = <b>{ecgData.peaks3}</b></li>
+              <li>peaks from algorithm 1 = <b>{ecgData.peaks3.length}</b></li>
               <li>Total peaks = <b>80</b></li>
-              <li>Therefore, missed peaks = <b>{80 - ecgData.peaks3}</b></li>
-              <li>Hence %missed peaks = <b>{((80 - ecgData.peaks3) / 80) * 100}%</b></li></ul>
+              <li>Therefore, missed peaks = <b>{80 - ecgData.peaks3.length}</b></li>
+              <li>Hence %missed peaks = <b>{((80 - ecgData.peaks3.length) / 80) * 100}%</b></li></ul>
           </div> : ""}
           {index === 5 ? <><div className="container">
             <div className="title">Algorithm 2: using double difference squares</div>
             <ul><div> the squared double differences are calculated at all points to form an array(say 'array1') </div>
               <li> The threshold value is taken as (mid + min)/3, where mid value = (max + min) / 2</li>
               <li>Assuming all peaks lie above threshold,</li>
-              <li>peaks from algorithm2 = <b>{ecgData.peaks3Alg2}</b></li>
+              <li>peaks from algorithm2 = <b>{ecgData.peaks3Alg2.length}</b></li>
               <li>Total peaks = <b>80</b></li>
-              <li>Therefore, missed peaks = <b>{80 - ecgData.peaks3Alg2}</b></li>
-              <li>Hence %missed peaks = <b>{((80 - ecgData.peaks3Alg2) / 80) * 100}%</b></li></ul>
+              <li>Therefore, missed peaks = <b>{80 - ecgData.peaks3Alg2.length}</b></li>
+              <li>Hence %missed peaks = <b>{((80 - ecgData.peaks3Alg2.length) / 80) * 100}%</b></li></ul>
           </div><hr/></> : ""}
           {index === 6 ? <div className="container">
             <div className="title">Algorithm 1 : threshold = (median + maximum + mid)/3 , where mid = (max + min)/2</div>
             <ul><div>Assuming all peaks lie above threshold, </div>
-              <li>peaks from algorithm 1 = <b>{ecgData.peaks4}</b></li>
+              <li>peaks from algorithm 1 = <b>{ecgData.peaks4.length}</b></li>
               <li>Total peaks = <b>73</b></li>
-              <li>Therefore, missed peaks = <b>{73 - ecgData.peaks4}</b></li>
-              <li>Hence %missed peaks = <b>{((73 - ecgData.peaks4) / 73) * 100}%</b></li></ul>
+              <li>Therefore, missed peaks = <b>{73 - ecgData.peaks4.length}</b></li>
+              <li>Hence %missed peaks = <b>{((73 - ecgData.peaks4.length) / 73) * 100}%</b></li></ul>
           </div> : ""}
           {index === 7 ? <div className="container">
             <div className="title">Algorithm 2: using double difference squares</div>
             <ul><div> the squared double differences are calculated at all points to form an array(say 'array1') </div>
               <li> The threshold value is taken as (mid + min)/3, where mid value = (max + min) / 2</li>
               <li>Assuming all peaks lie above threshold,</li>
-              <li>peaks from algorithm2 = <b>{ecgData.peaks4Alg2}</b></li>
+              <li>peaks from algorithm2 = <b>{ecgData.peaks4Alg2.length}</b></li>
               <li>Total peaks = <b>73</b></li>
-              <li>Therefore, missed peaks = <b>{73 - ecgData.peaks4Alg2}</b></li>
-              <li>Hence %missed peaks = <b>{((73 - ecgData.peaks4Alg2) / 73) * 100}%</b></li></ul><hr/>
+              <li>Therefore, missed peaks = <b>{73 - ecgData.peaks4Alg2.length}</b></li>
+              <li>Hence %missed peaks = <b>{((73 - ecgData.peaks4Alg2.length) / 73) * 100}%</b></li></ul><hr/>
 
             <div className="title">Explanation</div>
             <ul>
@@ -240,17 +272,21 @@ function App() {
                 peak, max gives the maximum reference for peak </li>
                 <li>For algorithm 2, the differences will be very less for P/T wave and higher for QRS complex. 
                   By squaring the differences, the P/T wave is supressed and QRS complex is enhanced. Hence the peak values 
-                  are found out for QRS by taking a threshold of mid = (max + min)/2. But we might false peaks because
-                 of the noise in the QRS complex. To avoid this, a certain time interval is taken from 
+                  are found out for QRS by taking a threshold of mid = (max + min)/2. </li>
+                  <li>But we might false peaks because
+                 of the noise in the QRS wave. To avoid this, a certain time interval is taken from 
                  every point. The multiple peaks obtained in this time interval is removed. 
                  Thus, having only one peak in the taken time interval</li></ul>
             <div className="title">Conclusion</div>
             <ul>
-              <li>Algorithm 1 is  efficient only for resting state ecg because for stress ecg, P/T waves will make 
-                the median value shift near to maximum value and some peaks will be ignored by the algorithm </li>
-              <li>Algorithm 2 is very efficient for all cases of ECG, having less than 2% of missed peaks, as the algorithm 
-                depends only on QRS complex as P/T wave is supressed by the algoritm, making less effect by the stress/
-                exercise case
+              <li>Algorithm 1 is very efficient for resting state ecg. It is less efficient for stress because, for 
+                stress ecg, P/T waves will make the median value shift near to maximum value and some peaks will be 
+                ignored by the algorithm </li>
+              <li>Algorithm 2 is efficient for resting state ecg but not efficient for stress ecg because it doesnt use median.
+                 we observe in ECG 2 that, as the peak value is much higher, threshold is higher as the median is not used.
+                 If there is no such high peaks in the data, then the algorithm will be efficient.To avoid this, filters must be 
+                 used to filter out such high peaks and set threshold. Here, the P/T complex is supressed by taking squares of 
+                 differences. Hence peaks depends only on QRS wave. By avoiding high peaks for estimation of threshold, we get accurate.
               </li>
             </ul>
             <div className="title">codes</div>
